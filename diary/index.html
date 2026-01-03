@@ -15,10 +15,10 @@
 <body>
   <div class="page-container">
     <!-- Main content wrapper with two-column layout -->
-    <div style="display: flex; gap: 40px; align-items: flex-start; position: relative;">
+    <div class="main-wrapper">
 
       <!-- Left column: Main content -->
-      <div style="flex: 1; min-width: 0;">
+      <div class="content-column">
         <!-- Messy diary index header -->
         <div class="diary-header mb-lg">
           <h1 class="tilt-left">
@@ -36,8 +36,7 @@
           </h2>
 
           <!-- Index entries in 2x2 grid -->
-          <div class="index-grid"
-            style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; margin-bottom: 30px;">
+          <div class="index-grid">
 
             <!-- Index entry: Thoughts -->
             <div class="index-entry stagger-item wobble-hover" onclick="openDiaryPage('thoughts')"
@@ -139,7 +138,7 @@
       <!-- End of left column -->
 
       <!-- Right column: Tall profile card - fixed to right edge -->
-      <div style="width: 280px; flex-shrink: 0; position: fixed; right: 40px; top: 80px;">
+      <div class="profile-column">
         <div class="profile-section-tall">
           <!-- Sticky tape at top -->
           <div class="sticky-tape"></div>
