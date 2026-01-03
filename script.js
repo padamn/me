@@ -106,10 +106,10 @@ function getThoughtsContent() {
     <p class="annotation mb-lg">unfiltered brain dumps</p>
     
     <div class="thought-entry mb-lg">
-      <p class="mb-sm">Been thinking about how we document our lives now vs. before.</p>
-      <p class="mb-sm"><span class="strikethrough">Everything needs to be Instagram-perfect</span></p>
-      <p class="mb-sm">Actually, the messy stuff is more real. More human.</p>
-      <p class="text-gray">Maybe that's why I made this site look like a diary instead of a portfolio.</p>
+      <p class="mb-sm">Games I want to play.</p>
+      <p class="mb-sm"><span class="strikethrough">I want to build companies because gotta change the world!</span></p>
+      <p class="mb-sm">Actually, I treat my life as a set of games I can play. There are various games. Think - mastery over my skills, or create an amazing life or, be the most well rounded person or travel the world.</p>
+      <p class="text-gray">I enjoy this game. Even if the end outcome turns out to be the same as compared to other games, this is the one i want to be a world class player in. Maybe I'll write more sometime later .</p>
       <span class="doodle doodle-star" style="margin-left: 10px;">★</span>
     </div>
     
