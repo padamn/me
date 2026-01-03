@@ -1,0 +1,561 @@
+/* Wimpy Kid-Inspired Diary Website - Main Styles */
+
+/* Import hand-drawn fonts */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&family=Shadows+Into+Light&display=swap');
+
+/* CSS Variables - Color Palette */
+:root {
+    /* Paper and ink colors - cool whitish-blue tone */
+    --paper-bg: #f5f7fa;
+    --paper-shadow: #e3e8ed;
+    --ink-black: #1a1a1a;
+    --ink-gray: #4a4a4a;
+    --ink-light: #7a7a7a;
+
+    /* Accent colors - muted pen style */
+    --accent-blue: #4a7c9e;
+    --accent-red: #c85a54;
+    --accent-yellow: #e8c547;
+
+    /* Fonts - all Indie Flower for consistent handwritten look */
+    --font-primary: 'Indie Flower', cursive;
+    --font-secondary: 'Indie Flower', cursive;
+    --font-accent: 'Indie Flower', cursive;
+
+    /* Spacing - intentionally imperfect */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--paper-bg);
+    color: var(--ink-black);
+    line-height: 1.6;
+    font-size: 18px;
+    overflow-x: hidden;
+
+    /* Paper texture effect - cool blue tint */
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 31px,
+            rgba(74, 124, 158, 0.04) 31px,
+            rgba(74, 124, 158, 0.04) 32px),
+        linear-gradient(90deg,
+            var(--paper-bg) 0%,
+            #f8fafc 50%,
+            var(--paper-bg) 100%);
+    background-size: 100% 32px, 100% 100%;
+}
+
+/* Container with notebook margins - adjusted for right-aligned profile */
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+    min-height: 100vh;
+    position: relative;
+
+    /* Left margin line like a notebook - BLUE */
+    border-left: 3px solid #4a7c9e;
+    margin-left: 80px;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        margin-left: 40px;
+        padding: var(--space-md) var(--space-sm);
+    }
+}
+
+/* Messy handwritten text styles */
+h1,
+h2,
+h3 {
+    font-family: var(--font-primary);
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+}
+
+h1 {
+    font-size: 2.5rem;
+    transform: rotate(-1deg);
+    margin-bottom: var(--space-md);
+}
+
+h2 {
+    font-size: 2rem;
+    transform: rotate(0.5deg);
+}
+
+h3 {
+    font-size: 1.5rem;
+    transform: rotate(-0.3deg);
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    transform: rotate(0.1deg);
+}
+
+/* Links - underlined like pen marks */
+a {
+    color: var(--ink-black);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--ink-black);
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+
+    /* Sketchy underline effect */
+    background-image: repeating-linear-gradient(90deg,
+            var(--ink-black) 0px,
+            var(--ink-black) 4px,
+            transparent 4px,
+            transparent 6px);
+}
+
+a:hover::after {
+    transform: scaleX(1.05);
+    background-color: var(--accent-blue);
+    background-image: repeating-linear-gradient(90deg,
+            var(--accent-blue) 0px,
+            var(--accent-blue) 4px,
+            transparent 4px,
+            transparent 6px);
+}
+
+/* Strikethrough text for edits */
+.strikethrough {
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-black);
+    text-decoration-thickness: 2px;
+    opacity: 0.6;
+    position: relative;
+}
+
+.strikethrough::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background: var(--ink-black);
+    transform: rotate(-1deg);
+}
+
+/* Annotations and scribbles */
+.annotation {
+    font-family: var(--font-accent);
+    font-size: 0.9em;
+    color: var(--accent-blue);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-left: var(--space-xs);
+}
+
+/* Doodle elements */
+.doodle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+}
+
+.doodle-star {
+    font-size: 1.5rem;
+    color: var(--accent-yellow);
+}
+
+.doodle-arrow {
+    font-size: 2rem;
+    color: var(--ink-black);
+}
+
+.doodle-heart {
+    font-size: 1.2rem;
+    color: var(--accent-red);
+}
+
+/* Imperfect alignment utilities */
+.tilt-left {
+    transform: rotate(-1.5deg);
+}
+
+.tilt-right {
+    transform: rotate(1.5deg);
+}
+
+.tilt-slight {
+    transform: rotate(0.5deg);
+}
+
+/* Messy list styles */
+ul,
+ol {
+    list-style: none;
+    margin-left: var(--space-md);
+}
+
+ul li::before {
+    content: '•';
+    color: var(--ink-black);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    transform: rotate(15deg);
+}
+
+/* Handwritten box/highlight effect */
+.highlight-box {
+    background-color: rgba(232, 197, 71, 0.2);
+    padding: var(--space-sm);
+    margin: var(--space-md) 0;
+    border: 2px dashed var(--ink-black);
+    border-radius: 2px;
+    transform: rotate(-0.5deg);
+    position: relative;
+}
+
+/* Scribbled circle highlight */
+.circle-highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.circle-highlight::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    right: -8px;
+    bottom: -5px;
+    border: 2px solid var(--accent-red);
+    border-radius: 50%;
+    transform: rotate(-5deg);
+    opacity: 0.6;
+}
+
+/* Button styles - handwritten */
+.btn {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    padding: var(--space-sm) var(--space-md);
+    background-color: transparent;
+    border: 2px solid var(--ink-black);
+    color: var(--ink-black);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    position: relative;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: rgba(74, 124, 158, 0.1);
+    transform: rotate(0deg) scale(1.02);
+}
+
+.btn:active {
+    transform: rotate(1deg) scale(0.98);
+}
+
+/* Diary page overlay */
+.diary-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: var(--space-md);
+    animation: fadeIn 0.3s ease;
+}
+
+.diary-overlay.active {
+    display: flex;
+}
+
+.diary-page {
+    background-color: var(--paper-bg);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: var(--space-xl);
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    /* Paper texture for overlay */
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 31px,
+            rgba(26, 26, 26, 0.03) 31px,
+            rgba(26, 26, 26, 0.03) 32px);
+    background-size: 100% 32px;
+
+    animation: slideIn 0.4s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-black);
+    font-family: var(--font-primary);
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px) rotate(-2deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Utility classes */
+.mb-sm {
+    margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--space-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--space-lg);
+}
+
+.mt-sm {
+    margin-top: var(--space-sm);
+}
+
+.mt-md {
+    margin-top: var(--space-md);
+}
+
+.mt-lg {
+    margin-top: var(--space-lg);
+}
+
+.text-blue {
+    color: var(--accent-blue);
+}
+
+.text-red {
+    color: var(--accent-red);
+}
+
+.text-gray {
+    color: var(--ink-gray);
+}
+
+/* Index entry styles */
+.index-entry {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.index-entry:hover {
+    border-left-color: var(--accent-blue);
+    padding-left: calc(var(--space-sm) + 5px);
+    /* Removed background-color that was causing text to vanish */
+}
+
+/* Question item styles */
+.question-item {
+    padding: var(--space-sm);
+    border-left: 2px solid var(--ink-light);
+    margin-bottom: var(--space-md);
+    transition: all 0.3s ease;
+}
+
+.question-text {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xs);
+    transition: color 0.3s ease;
+}
+
+.question-text:hover {
+    color: var(--accent-blue);
+}
+
+.answer-text {
+    padding-left: var(--space-md);
+    margin-top: var(--space-sm);
+    border-left: 2px dashed var(--accent-blue);
+}
+
+/* Thought entry styles */
+.thought-entry {
+    padding: var(--space-md);
+    background-color: rgba(249, 247, 243, 0.5);
+    border-left: 3px solid var(--ink-light);
+    position: relative;
+}
+
+.thought-entry::before {
+    content: '✎';
+    position: absolute;
+    top: var(--space-sm);
+    left: -15px;
+    font-size: 1.2rem;
+    color: var(--ink-gray);
+}
+
+/* Playlist item styles */
+.playlist-item {
+    padding: var(--space-md);
+    border: 2px dashed var(--ink-light);
+    border-radius: 5px;
+    background-color: rgba(249, 247, 243, 0.8);
+    transition: all 0.3s ease;
+}
+
+.playlist-item:hover {
+    border-color: var(--accent-blue);
+    transform: rotate(-0.5deg);
+}
+
+/* About section styles */
+.about-section ul {
+    margin-left: var(--space-lg);
+}
+
+.about-section li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.8;
+}
+
+/* Profile section */
+.profile-section {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+    background-color: white;
+    border: 2px solid var(--ink-black);
+    border-radius: 0;
+    position: relative;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+    margin-top: var(--space-xl);
+}
+
+/* Tall profile section for right margin */
+.profile-section-tall {
+    padding: var(--space-lg) var(--space-md);
+    background-color: white;
+    border: 2px solid var(--ink-black);
+    border-radius: 0;
+    position: relative;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+/* Sticky tape effect */
+.sticky-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 120px;
+    height: 30px;
+    background-color: #f4d03f;
+    opacity: 0.7;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-tape::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px);
+}
+
+/* Scribbled notes */
+.scribbled-notes {
+    padding: var(--space-md);
+    border-top: 1px solid var(--ink-light);
+    border-bottom: 1px solid var(--ink-light);
+}
+
+/* Contact options */
+.contact-options a {
+    margin-right: var(--space-sm);
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1024px) {
+    .page-container>div:first-child {
+        flex-direction: column !important;
+    }
+
+    .profile-section-tall {
+        width: 100% !important;
+        position: static !important;
+        margin-bottom: var(--space-xl);
+    }
+}
