@@ -37,7 +37,7 @@ function getDiaryPageContent(pageId) {
 function getQuestionsContent() {
   return `
     <button class="close-btn" onclick="closeDiaryPage()">×</button>
-    <h1 class="tilt-left mb-md">Questions I Think About</h1>
+    <h1 class="tilt-left mb-md">Questions I Think About {placeholder for now, not my thoughts}</h1>
     <p class="text-gray mb-lg">Click any question to see my thoughts...</p>
     
     <div class="question-list">
@@ -108,17 +108,17 @@ function getThoughtsContent() {
     <div class="thought-entry mb-lg">
       <p class="mb-sm">Games I want to play.</p>
       <p class="mb-sm"><span class="strikethrough">I want to build companies because gotta change the world!</span></p>
-      <p class="mb-sm">Actually, I treat my life as a set of games I can play. There are various games. Think - mastery over my skills, or create an amazing life or, be the most well rounded person or travel the world.</p>
-      <p class="text-gray">I enjoy this game. Even if the end outcome turns out to be the same as compared to other games, this is the one i want to be a world class player in. Maybe I'll write more sometime later .</p>
+      <p class="mb-sm">I treat my life as a set of games I can play. There are various games. Think - mastery over my skills, or create an amazing life or, be the most well rounded person or travel the world.</p>
+      <p class="text-gray">I enjoy this game -> building businesses. Even if the end outcome turns out to be the same as other games, this is the one i want to be a world class player in. Even if i end up making money, i see it enabling me building more businesses lol. Maybe I'll write more sometime later .</p>
       <span class="doodle doodle-star" style="margin-left: 10px;">★</span>
     </div>
     
     <div class="thought-entry mb-lg tilt-slight">
-      <p class="mb-sm">Coffee tastes better when you're not rushing.</p>
-      <p class="mb-sm">Same with conversations, books, walks...</p>
-      <p class="mb-sm"><span class="strikethrough">Need to optimize everything</span></p>
-      <p class="text-gray">Some things are meant to be slow.</p>
-      <span class="annotation">← reminder to self</span>
+      <p class="mb-sm">Spent the last week of the year being badgered by people.</p>
+      <p class="mb-sm">How are you able to leave a job, when you're not even sure what you want to do?</p>
+      <p class="mb-sm">How do you survive without a salary? When are you getting married (thanks mum)</p>
+      <p class="mb-sm"><span class="strikethrough">just got the balls to do it</span></p>
+    <p class="text-gray">idk man. cross the bridge and then burn the boats  ¯\_(ツ)_/¯</p>
     </div>
     
     <div class="thought-entry mb-lg">
@@ -202,15 +202,16 @@ function getAboutContent() {
     <h1 class="tilt-right mb-md">About (kind of)</h1>
     
     <div class="about-section mb-lg">
-      <h2 class="text-blue mb-sm">Things that matter to me:</h2>
+      <h2 class="text-blue mb-sm">Things that interest me:</h2>
       <ul>
         <li>Good conversations that go on for hours</li>
         <li>Making things (even if they're imperfect)</li>
         <li>People who are genuinely curious</li>
-        <li>Coffee shops with good vibes</li>
+        <li>Running, cycling, basically anything that gets me moving. Always down for these</li>
         <li>Books that change how you think</li>
         <li>Walking without a destination</li>
-        <li>Ideas that seem crazy at first</li>
+        <li>Being an optimist, cuz what else we living for babyyy!</li>
+        <li>Philosophy : Hit me with the latest train of thought you got fren - oriental, existential, nihilistic - I'm all game</li>
       </ul>
       <span class="doodle doodle-heart" style="margin-left: 10px;">♥</span>
     </div>
@@ -218,12 +219,11 @@ function getAboutContent() {
     <div class="about-section mb-lg tilt-slight">
       <h2 class="text-red mb-sm">Things I'm bad at:</h2>
       <ul>
-        <li>Small talk (give me deep or give me silence)</li>
         <li>Keeping plants alive <span class="strikethrough">sorry plants</span></li>
-        <li>Finishing every project I start</li>
+        <li>Unpacking and packing my Suitcase (i have spent half my life in it)</li>
         <li>Not overthinking everything</li>
         <li>Waking up early (I'm trying, okay?)</li>
-        <li>Pretending to be interested when I'm not</li>
+        <li><span class="strikethrough">FUCKING</span> EMAILS!!!!!!!!!!!</li>
       </ul>
     </div>
     
@@ -231,19 +231,18 @@ function getAboutContent() {
       <h2 class="text-blue mb-sm">Things I'm trying to get better at:</h2>
       <ul>
         <li>Asking better questions</li>
-        <li>Being comfortable with uncertainty</li>
+        <li>Listening more than talking. Have been more of a yapper lately.</li>
+        <li>Being comfortable with uncertainty (this will be an ongoing journey)</li>
         <li>Creating more, consuming less</li>
-        <li>Saying no to things that don't matter</li>
-        <li>Being present instead of productive</li>
-        <li>Embracing the messy middle of projects</li>
+        <li>writing :|</li>
+        <li>Being more present</li>
       </ul>
-      <span class="annotation">← work in progress</span>
     </div>
     
     <div class="highlight-box mt-lg">
-      <p class="mb-sm">This isn't a resume or a pitch.</p>
+      <p class="mb-sm">This ain't a pitch.</p>
       <p class="mb-sm">It's just... me, I guess.</p>
-      <p class="text-blue mt-sm">If this resonates, let's chat.</p>
+      <p class="text-blue mt-sm"> Found something interesting? let's chat.</p>
     </div>
   `;
 }
